@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "../css/MovieCard.css";
-import { useMovieContext } from "../contexts/MovieContext";
+import { useMovieContext } from "../contexts/useMovieContext";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
