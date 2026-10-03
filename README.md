@@ -507,6 +507,11 @@ Install all runtime and development dependencies defined in `package.json`:
 ```bash
 npm install
 ```
+also
+
+```bash
+npm install prop-types
+```
 
 This installs packages including:
 

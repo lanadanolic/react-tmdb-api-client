@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../css/MovieCard.css";
 import { useMovieContext } from "../contexts/MovieContext";
 
@@ -25,7 +26,7 @@ function MovieCard({ movie }) {
     ? `${IMAGE_BASE_URL}${movie.poster_path}`
     : null;
 
-  function onFavoriteClick(event) {
+  const handleFavoriteClick = (event) => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -34,7 +35,7 @@ function MovieCard({ movie }) {
     } else {
       addToFavorites(movie);
     }
-  }
+  };
 
   return (
     <article className="movie-card">
@@ -47,7 +48,7 @@ function MovieCard({ movie }) {
           />
         ) : (
           <div className="poster-fallback">
-            <span>No Poster</span>
+            <span>No Poster Available</span>
           </div>
         )}
 
@@ -64,7 +65,7 @@ function MovieCard({ movie }) {
             className={`favorite-btn ${
               favorite ? "active" : ""
             }`}
-            onClick={onFavoriteClick}
+            onClick={handleFavoriteClick}
             aria-label={
               favorite
                 ? `Remove ${movie.title} from favorites`
@@ -80,7 +81,11 @@ function MovieCard({ movie }) {
 
           <div className="movie-card-meta">
             <span>{releaseYear}</span>
-            <span className="meta-separator">•</span>
+
+            <span className="meta-separator">
+              •
+            </span>
+
             <span>Movie</span>
           </div>
         </div>
@@ -88,5 +93,15 @@ function MovieCard({ movie }) {
     </article>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number,
+    poster_path: PropTypes.string,
+  }).isRequired,
+};
 
 export default MovieCard;
