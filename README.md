@@ -10,7 +10,7 @@ The project demonstrates asynchronous API communication, client-side routing, gl
 
 <p align="center">
   <img
-    src="docs/screenshots/demo.gif"
+    src="docs/screenshots/demo3.gif"
     alt="React TMDB API Client Demo"
     width="900"
   />
