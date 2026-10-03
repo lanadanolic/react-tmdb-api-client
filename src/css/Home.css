@@ -1,100 +1,507 @@
 .home {
-    padding: 2rem 0;
-    width: 100%;
-    box-sizing: border-box;
-    color: white;
-  }
-  
-  .search-form {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    display: flex;
-    gap: 1rem;
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
-  
-  .search-input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    font-size: 1rem;
-  }
-  
-  .search-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #666;
-  }
-  
-  .search-button {
-    padding: 0.75rem 1.5rem;
-  background-color: #e50914; /* Crvena boja */
-  color: white; /* Bijeli tekst */
-  border: none;
-  border-radius: 4px;
+  width: 100%;
+  min-height: 100vh;
+
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(229, 9, 20, 0.08),
+      transparent 28rem
+    ),
+    #08080c;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  min-height: 560px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 4rem 5rem;
+
+  box-sizing: border-box;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  animation: heroFadeIn 0.8s ease-out;
+}
+
+.hero-label,
+.section-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 0.75rem;
+
+  color: #e50914;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.hero-title {
+  margin: 0;
+
+  max-width: 700px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    3rem,
+    7vw,
+    6.5rem
+  );
+
+  font-weight: 800;
+
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+
+  color: #c7c7cc;
+
+  font-size: 0.95rem;
   font-weight: 500;
-  font-size: 1rem;
+}
+
+.hero-rating {
+  color: #ffd166;
+}
+
+.hero-overview {
+  max-width: 580px;
+
+  margin-top: 1.5rem;
+
+  color: #c6c6cc;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.hero-button {
+  margin-top: 1.75rem;
+
+  padding: 0.85rem 1.5rem;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e50914,
+      #bb0710
+    );
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  }
-  
-  .search-button:hover {
-    background-color: #f40612;
-  }
-  
-  
-  @media (max-width: 639px) {
-    .home {
-      padding: 1rem 0;
-    }
-  
-    .search-form {
-      margin-bottom: 1rem;
-    }
-  }
-  
-  .movies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
+
+  box-shadow:
+    0 10px 30px
+    rgba(229, 9, 20, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.1);
+
+  box-shadow:
+    0 15px 40px
+    rgba(229, 9, 20, 0.35);
+}
+
+/* =========================
+   MOVIE SECTION
+========================= */
+
+.movie-section {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 2rem 3rem 5rem;
+
+  box-sizing: border-box;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    1.8rem,
+    3vw,
+    2.5rem
+  );
+
+  letter-spacing: -0.04em;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-form {
+  width: min(100%, 480px);
+
+  display: flex;
+  gap: 0.6rem;
+
+  padding: 0.35rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  backdrop-filter: blur(10px);
+}
+
+.search-input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 0.75rem 1rem;
+
+  border: none;
+  outline: none;
+
+  color: #ffffff;
+
+  background: transparent;
+
+  font-size: 0.95rem;
+}
+
+.search-input::placeholder {
+  color: #777781;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  padding: 0.75rem 1.2rem;
+
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  background: #e50914;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.search-button:hover {
+  background: #f3121d;
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MOVIE GRID
+========================= */
+
+.movies-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(210px, 1fr)
+    );
+
+  gap: 1.5rem;
+
+  width: 100%;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  color: #888892;
+}
+
+.loading-spinner {
+  width: 34px;
+  height: 34px;
+
+  border:
+    3px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-top-color: #e50914;
+
+  border-radius: 50%;
+
+  animation:
+    spin 0.8s linear infinite;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+  margin-bottom: 2rem;
+
+  padding: 1rem 1.25rem;
+
+  border:
+    1px solid
+    rgba(229, 9, 20, 0.25);
+
+  border-radius: 12px;
+
+  color: #ff8087;
+
+  background:
+    rgba(229, 9, 20, 0.08);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-top: 3rem;
+}
+
+.pagination-button {
+  padding: 0.7rem 1.1rem;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pagination-button:hover:not(
+  :disabled
+) {
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  transform: translateY(-1px);
+}
+
+.pagination-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.pagination-info span {
+  margin: 0 0.3rem;
+  color: #66666f;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
   }
 
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .pagination-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #e50914;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .pagination-button:hover {
-    background-color: #f40612;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 500px;
+
+    padding:
+      3rem 2rem;
   }
-  
-  .pagination-button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
+
+  .hero-content {
+    max-width: 550px;
   }
-  
-  .pagination-info {
-    font-size: 1.2rem;
-    color: white;
+
+  .section-header {
+    align-items: stretch;
+    flex-direction: column;
   }
-  
+
+  .search-form {
+    width: 100%;
+  }
+
+  .movie-section {
+    padding:
+      2rem 1.5rem
+      4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 460px;
+
+    padding:
+      3rem 1.25rem
+      2rem;
+
+    background-position: 65% center;
+  }
+
+  .hero-title {
+    font-size: 2.7rem;
+  }
+
+  .hero-overview {
+    font-size: 0.95rem;
+
+    -webkit-line-clamp: 3;
+  }
+
+  .movie-section {
+    padding:
+      1.5rem 1rem
+      3rem;
+  }
+
+  .movies-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 0.8rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}
